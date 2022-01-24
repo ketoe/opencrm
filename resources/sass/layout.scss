@@ -1,0 +1,146 @@
+$background-body: #EEEEEE;
+$background-section: #FFFFFF;
+$color-border-section: #CCCCCC;
+$modul: 20px;
+$width-section: 70%;
+$font: Alata;
+
+$height-header: calc($modul*4);
+$height-nav: calc($modul*4);
+$height-footer: $modul;
+
+$width-logo: 202px;
+$height-logo: 49px;
+
+$width-icon: calc($modul * 2);
+$height-icon: calc($modul * 2);
+
+$width-icon-menu: calc($modul * 2);
+$height-icon-menu: calc($modul * 2);
+
+$icons: 
+"admin" 
+"attachment" 
+"blockade" 
+"calender" 
+"clients" 
+"clock" 
+"delete" 
+"download" 
+"edit" 
+"false" 
+"forward" 
+"home" 
+"logout" 
+"messages" 
+"notes" 
+"orders" 
+"question" 
+"refresh" 
+"save" 
+"sarch" 
+"settings" 
+"star" 
+"telephone" 
+"true" 
+"ublockade" 
+"undo";
+
+
+$path-logo: '/css/img/logo.png';
+
+
+body {
+    background-color: $background-body;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    header, nav, main, footer {
+        background-color: $background-section;
+        width: $width-section;
+        margin: 0 auto;
+        border: 2px solid $color-border-section;
+        border-radius: 5px 5px 5px 5px;
+    }
+    .icon {
+        width: $width-icon;
+        height: $height-icon;
+        cursor: pointer;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+
+    .icon-medium {
+        width: calc($width-icon / 1.5);
+        height: calc($height-icon / 1.5);
+    }
+
+    .icon-small {
+        width: calc($width-icon / 2);
+        height: calc($height-icon / 2);
+    }
+    @each $icon in $icons {
+        .#{$icon} {
+            background-image: url('/css/img/icons/unactive/#{$icon}.png');
+            @if (&:(click == 'true')) {  
+                &:hover {
+                    background-image: url('/css/img/icons/active/#{$icon}.png');
+                    transform: .2s;
+                }
+            }
+        }
+    }
+
+    header {
+        height: $height-header;
+        border-top: 0px;
+        position: relative;
+        section {
+            .logo {
+                position: absolute;
+                width: $width-logo;
+                height: $height-logo;
+                background-image: url(#{$path-logo});
+                background-size: contain;
+                background-repeat: no-repeat;
+                left: $modul;
+                top: calc(($height-header - $height-logo) / 2);
+            }
+        }
+    }
+    nav {
+        position: relative;
+        height: $height-nav;
+        margin-top: $modul;
+        ul {
+            position: absolute;
+            list-style-type: none;
+            top: calc(($height-nav - $height-icon-menu) / 2);
+            li {
+                display: inline;
+                margin-left: $modul;
+                width: $width-icon-menu;
+                height: $height-icon-menu;
+            }
+            li:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+    main {
+        margin-top: $modul;
+        height: calc(100vh - $height-footer - $height-header - $height-nav - $modul*3);
+        overflow-y: auto;
+       
+    }
+    footer {
+        height: $height-footer;
+        margin-top: $modul;
+        border-bottom: 0px;
+      
+    }
+}
+
