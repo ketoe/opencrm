@@ -20,7 +20,7 @@
             <li><div class="icon clients"></div></li>
             <li><div class="icon orders"></div></li>
             <li><div class="icon calender"></div></li>
-            <li><div class="icon notes"></div></li>
+            <li><div class="icon notes"></div></li><li></li>
         </ul>
     </nav>
     <main>
