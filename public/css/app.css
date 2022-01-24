@@ -11287,6 +11287,8 @@ textarea.form-control-lg {
   }
 }
 body {
+  font-family: Alata;
+  color: #444444;
   background-color: #EEEEEE;
   width: 100%;
   height: 100%;
@@ -11304,7 +11306,6 @@ body header, body nav, body main, body footer {
 body .icon {
   width: 40px;
   height: 40px;
-  cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
@@ -11320,184 +11321,258 @@ body .icon-small {
 body .admin {
   background-image: url("/css/img/icons/unactive/admin.png");
 }
-body .admin:hover {
+body .admin:hover[click=true] {
   background-image: url("/css/img/icons/active/admin.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .attachment {
   background-image: url("/css/img/icons/unactive/attachment.png");
 }
-body .attachment:hover {
+body .attachment:hover[click=true] {
   background-image: url("/css/img/icons/active/attachment.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .blockade {
   background-image: url("/css/img/icons/unactive/blockade.png");
 }
-body .blockade:hover {
+body .blockade:hover[click=true] {
   background-image: url("/css/img/icons/active/blockade.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .calender {
   background-image: url("/css/img/icons/unactive/calender.png");
 }
-body .calender:hover {
+body .calender:hover[click=true] {
   background-image: url("/css/img/icons/active/calender.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .clients {
   background-image: url("/css/img/icons/unactive/clients.png");
 }
-body .clients:hover {
+body .clients:hover[click=true] {
   background-image: url("/css/img/icons/active/clients.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .clock {
   background-image: url("/css/img/icons/unactive/clock.png");
 }
-body .clock:hover {
+body .clock:hover[click=true] {
   background-image: url("/css/img/icons/active/clock.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .delete {
   background-image: url("/css/img/icons/unactive/delete.png");
 }
-body .delete:hover {
+body .delete:hover[click=true] {
   background-image: url("/css/img/icons/active/delete.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .download {
   background-image: url("/css/img/icons/unactive/download.png");
 }
-body .download:hover {
+body .download:hover[click=true] {
   background-image: url("/css/img/icons/active/download.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .edit {
   background-image: url("/css/img/icons/unactive/edit.png");
 }
-body .edit:hover {
+body .edit:hover[click=true] {
   background-image: url("/css/img/icons/active/edit.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .false {
   background-image: url("/css/img/icons/unactive/false.png");
 }
-body .false:hover {
+body .false:hover[click=true] {
   background-image: url("/css/img/icons/active/false.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .forward {
   background-image: url("/css/img/icons/unactive/forward.png");
 }
-body .forward:hover {
+body .forward:hover[click=true] {
   background-image: url("/css/img/icons/active/forward.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .home {
   background-image: url("/css/img/icons/unactive/home.png");
 }
-body .home:hover {
+body .home:hover[click=true] {
   background-image: url("/css/img/icons/active/home.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .logout {
   background-image: url("/css/img/icons/unactive/logout.png");
 }
-body .logout:hover {
+body .logout:hover[click=true] {
   background-image: url("/css/img/icons/active/logout.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .messages {
   background-image: url("/css/img/icons/unactive/messages.png");
 }
-body .messages:hover {
+body .messages:hover[click=true] {
   background-image: url("/css/img/icons/active/messages.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .notes {
   background-image: url("/css/img/icons/unactive/notes.png");
 }
-body .notes:hover {
+body .notes:hover[click=true] {
   background-image: url("/css/img/icons/active/notes.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .orders {
   background-image: url("/css/img/icons/unactive/orders.png");
 }
-body .orders:hover {
+body .orders:hover[click=true] {
   background-image: url("/css/img/icons/active/orders.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .question {
   background-image: url("/css/img/icons/unactive/question.png");
 }
-body .question:hover {
+body .question:hover[click=true] {
   background-image: url("/css/img/icons/active/question.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .refresh {
   background-image: url("/css/img/icons/unactive/refresh.png");
 }
-body .refresh:hover {
+body .refresh:hover[click=true] {
   background-image: url("/css/img/icons/active/refresh.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .save {
   background-image: url("/css/img/icons/unactive/save.png");
 }
-body .save:hover {
+body .save:hover[click=true] {
   background-image: url("/css/img/icons/active/save.png");
   transform: 0.2s;
+  cursor: pointer;
 }
-body .sarch {
-  background-image: url("/css/img/icons/unactive/sarch.png");
+body .search {
+  background-image: url("/css/img/icons/unactive/search.png");
 }
-body .sarch:hover {
-  background-image: url("/css/img/icons/active/sarch.png");
+body .search:hover[click=true] {
+  background-image: url("/css/img/icons/active/search.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .settings {
   background-image: url("/css/img/icons/unactive/settings.png");
 }
-body .settings:hover {
+body .settings:hover[click=true] {
   background-image: url("/css/img/icons/active/settings.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .star {
   background-image: url("/css/img/icons/unactive/star.png");
 }
-body .star:hover {
+body .star:hover[click=true] {
   background-image: url("/css/img/icons/active/star.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .telephone {
   background-image: url("/css/img/icons/unactive/telephone.png");
 }
-body .telephone:hover {
+body .telephone:hover[click=true] {
   background-image: url("/css/img/icons/active/telephone.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .true {
   background-image: url("/css/img/icons/unactive/true.png");
 }
-body .true:hover {
+body .true:hover[click=true] {
   background-image: url("/css/img/icons/active/true.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .ublockade {
   background-image: url("/css/img/icons/unactive/ublockade.png");
 }
-body .ublockade:hover {
+body .ublockade:hover[click=true] {
   background-image: url("/css/img/icons/active/ublockade.png");
   transform: 0.2s;
+  cursor: pointer;
 }
 body .undo {
   background-image: url("/css/img/icons/unactive/undo.png");
 }
-body .undo:hover {
+body .undo:hover[click=true] {
   background-image: url("/css/img/icons/active/undo.png");
   transform: 0.2s;
+  cursor: pointer;
+}
+body .monke {
+  background-image: url("/css/img/icons/unactive/monke.png");
+}
+body .monke:hover[click=true] {
+  background-image: url("/css/img/icons/active/monke.png");
+  transform: 0.2s;
+  cursor: pointer;
+}
+body .info {
+  background-image: url("/css/img/icons/unactive/info.png");
+}
+body .info:hover[click=true] {
+  background-image: url("/css/img/icons/active/info.png");
+  transform: 0.2s;
+  cursor: pointer;
+}
+body .location {
+  background-image: url("/css/img/icons/unactive/location.png");
+}
+body .location:hover[click=true] {
+  background-image: url("/css/img/icons/active/location.png");
+  transform: 0.2s;
+  cursor: pointer;
+}
+body .add {
+  background-image: url("/css/img/icons/unactive/add.png");
+}
+body .add:hover[click=true] {
+  background-image: url("/css/img/icons/active/add.png");
+  transform: 0.2s;
+  cursor: pointer;
+}
+body .stats {
+  background-image: url("/css/img/icons/unactive/stats.png");
+}
+body .stats:hover[click=true] {
+  background-image: url("/css/img/icons/active/stats.png");
+  transform: 0.2s;
+  cursor: pointer;
+}
+body .unblockade {
+  background-image: url("/css/img/icons/unactive/unblockade.png");
+}
+body .unblockade:hover[click=true] {
+  background-image: url("/css/img/icons/active/unblockade.png");
+  transform: 0.2s;
+  cursor: pointer;
 }
 body header {
   height: 80px;
@@ -11523,10 +11598,11 @@ body nav ul {
   position: absolute;
   list-style-type: none;
   top: 20px;
+  left: 0;
 }
 body nav ul li {
   display: inline;
-  margin-left: 20px;
+  margin-right: 20px;
   width: 40px;
   height: 40px;
 }
@@ -11538,8 +11614,66 @@ body main {
   height: calc(100vh - 20px - 80px - 80px - 60px);
   overflow-y: auto;
 }
+body main h3, body main .h3 {
+  width: 100%;
+  height: 40px;
+  background-color: #EEEEEE;
+  border-bottom: 2px solid #CCCCCC;
+  padding-left: 20px;
+  font-size: 20px;
+  vertical-align: middle;
+  padding-top: 6.6666666667px;
+}
+body main section {
+  margin: 20px;
+  font-size: 14px;
+  color: #444444;
+}
+body main section table.table {
+  padding: 2px;
+  font-size: 10px;
+  color: #444444;
+}
+body main section table.table thead th {
+  border: 0px;
+  color: #444444;
+}
+body main section table.table tr {
+  padding: 0px;
+}
+body main section table.table tr td {
+  padding: 4px;
+  border: 1px solid #CCCCCC;
+}
+body main section table.table tr th {
+  padding: 4px;
+}
+body main section label {
+  display: block;
+  margin: 5px;
+}
+body main section input {
+  border: 0px;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 1px;
+  font-size: 14px;
+  background-color: #FFFFFF;
+}
+body main section input[type=submit] {
+  border-bottom: 0px !important;
+}
+body main section .btn-sm, body main section .btn-group-sm > .btn {
+  padding: 4px;
+  font-size: 10px;
+  margin: 6.6666666667px;
+}
 body footer {
   height: 20px;
   margin-top: 20px;
   border-bottom: 0px;
+}
+body footer section {
+  text-align: center;
+  font-size: 6.6666666667px;
+  margin-top: 4.4444444444px;
 }

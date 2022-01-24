@@ -4,6 +4,8 @@ $color-border-section: #CCCCCC;
 $modul: 20px;
 $width-section: 70%;
 $font: Alata;
+$font-size: 14px;
+$color-font: #444444;
 
 $height-header: calc($modul*4);
 $height-nav: calc($modul*4);
@@ -38,19 +40,27 @@ $icons:
 "question" 
 "refresh" 
 "save" 
-"sarch" 
+"search" 
 "settings" 
 "star" 
 "telephone" 
 "true" 
 "ublockade" 
-"undo";
+"undo"
+"monke"
+"info"
+"location"
+"add"
+"stats"
+"unblockade";
 
 
 $path-logo: '/css/img/logo.png';
 
 
 body {
+    font-family: $font;
+    color: $color-font;
     background-color: $background-body;
     width: 100%;
     height: 100%;
@@ -67,7 +77,6 @@ body {
     .icon {
         width: $width-icon;
         height: $height-icon;
-        cursor: pointer;
         background-size: contain;
         background-repeat: no-repeat;
         display: inline-block;
@@ -85,12 +94,11 @@ body {
     @each $icon in $icons {
         .#{$icon} {
             background-image: url('/css/img/icons/unactive/#{$icon}.png');
-            @if (&:(click == 'true')) {  
-                &:hover {
+                &:hover[click='true'] {
                     background-image: url('/css/img/icons/active/#{$icon}.png');
                     transform: .2s;
+                    cursor: pointer;
                 }
-            }
         }
     }
 
@@ -119,14 +127,15 @@ body {
             position: absolute;
             list-style-type: none;
             top: calc(($height-nav - $height-icon-menu) / 2);
+            left: 0;
             li {
                 display: inline;
-                margin-left: $modul;
+                margin-right: $modul;
                 width: $width-icon-menu;
                 height: $height-icon-menu;
-            }
-            li:first-child {
-                margin-left: 0px;
+                &:first-child {
+                    margin-left: 0px;
+                }
             }
         }
     }
@@ -134,13 +143,73 @@ body {
         margin-top: $modul;
         height: calc(100vh - $height-footer - $height-header - $height-nav - $modul*3);
         overflow-y: auto;
+        h3 {
+            width: 100%;
+            height: $modul*2;
+            background-color: $background-body;
+            border-bottom: 2px solid $color-border-section;
+            padding-left: $modul;
+            font-size: $modul;
+            vertical-align: middle;
+            padding-top: calc($modul / 3);
+        }
+        section {
+            margin: $modul;
+            font-size: $font-size;
+            color: $color-font;
+            table.table {
+                padding: 2px;
+                font-size: $modul/2;
+                color: $color-font;
+                thead {
+                    
+                    th {
+                        border: 0px;
+                        color: $color-font;
+                    }
+                }
+                tr {
+                    padding: 0px;
+                    td {
+                        padding: $modul/5;
+                        border: 1px solid $color-border-section;
+                    }
+                    th {
+                        padding: $modul/5;
+                    }
+                }
+            }
+            label {
+                display: block;
+                margin: 5px;
+            }
+            input {
+                border: 0px;
+                border-bottom: 1px solid $color-border-section;
+                padding: 1px;
+                font-size: $font-size;
+                background-color: $background-section;
+            }
+            input[type='submit'] {
+                border-bottom: 0px !important;
+            }
+            .btn-sm {
+                padding: 4px;
+                font-size: $modul/2;
+                margin: $modul/3;
+            }
+        }
        
     }
     footer {
         height: $height-footer;
         margin-top: $modul;
         border-bottom: 0px;
-      
+        section {
+            text-align: center;
+            font-size: $modul/3;
+            margin-top: calc(($height-footer - $modul/3) / 3);
+        }
     }
 }
 
