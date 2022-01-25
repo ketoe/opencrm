@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'admin',
+        'surname'
     ];
 
     /**
@@ -41,4 +43,65 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the notes for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notes(): HasMany
+    {
+        return $this->hasMany(Note::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all of the clients for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function clients(): HasMany
+    {
+        return $this->hasMany(Client::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all of the calenders for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function calenders(): HasMany
+    {
+        return $this->hasMany(Calender::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all of the orders for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all of the messages for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messagesSend(): HasMany
+    {
+        return $this->hasMany(Message::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get all of the messagesTo for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messagesTo(): HasMany
+    {
+        return $this->hasMany(Message::class, 'id', 'to');
+    }
+    
 }

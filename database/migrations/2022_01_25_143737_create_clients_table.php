@@ -27,6 +27,11 @@ class CreateClientsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('payment_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('countrie_id')->references('id')->on('countries');
+            $table->foreign('currenncy_id')->references('id')->on('currencies');
+            $table->foreign('payment_id')->references('id')->on('payments');
         });
     }
 

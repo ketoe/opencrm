@@ -13,4 +13,14 @@ class Countrie extends Model
     protected $fillable = [
         "name"
     ];
+
+    /**
+     * Get all of the clients for the Countrie
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function clients(): HasMany
+    {
+        return $this->hasMany(Client::class, 'id', 'countrie_id');
+    }
 }
