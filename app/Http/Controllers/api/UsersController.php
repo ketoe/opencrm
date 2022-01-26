@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\api;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\UserRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Resource\UserResource;
+use App\Http\Resources\UserResource;
 
 class UsersController extends Controller
 {
@@ -18,7 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return UserResource::collection(User::paginate(20));
     }
 
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +41,7 @@ class UsersController extends Controller
      */
     public function store(UserRequest $request)
     {
-        //
+        return User::create($request->all());
     }
 
     /**
@@ -50,7 +52,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return new UserResource(User::findOrFail($id));
     }
 
     /**
@@ -61,7 +63,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new UserResource(User::findOrFail($id));
     }
 
     /**
@@ -73,7 +75,9 @@ class UsersController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->touch();
+        return $user->update($request->all());
     }
 
     /**
@@ -84,6 +88,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        return $user->delete();
+    }
+
+    public function showAuth ()
+    {
+        return $this->show(Auth::id());
     }
 }

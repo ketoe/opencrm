@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\CalenderRequest;
+use App\Http\Requests\CalenderRequest;
 use App\Models\Calender;
-use App\Resource\CalenderResource;
+use App\Http\Resources\CalenderResource;
 
 class CalendersController extends Controller
 {
@@ -18,7 +18,7 @@ class CalendersController extends Controller
      */
     public function index()
     {
-        //
+        return CalenderResource::collection(Calender::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class CalendersController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class CalendersController extends Controller
      */
     public function store(CalenderRequest $request)
     {
-        //
+        return Calender::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class CalendersController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CalenderResource(Calender::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class CalendersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new CalenderResource(Calender::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class CalendersController extends Controller
      */
     public function update(CalenderRequest $request, $id)
     {
-        //
+        $calender = Calender::find($id);
+        $calender->touch();
+        return $calender->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class CalendersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $calender = Calender::find($id);
+        return $calender->delete();
     }
 }

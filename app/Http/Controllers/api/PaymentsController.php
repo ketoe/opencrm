@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\PaymentRequest;
+use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
-use App\Resource\PaymentResource;
+use App\Http\Resources\PaymentResource;
 
 class PaymentsController extends Controller
 {
@@ -18,7 +18,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        //
+        return PaymentResource::collection(Payment::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class PaymentsController extends Controller
      */
     public function store(PaymentRequest $request)
     {
-        //
+        return Payment::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class PaymentsController extends Controller
      */
     public function show($id)
     {
-        //
+        return new PaymentResource(Payment::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class PaymentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new PaymentResource(Payment::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class PaymentsController extends Controller
      */
     public function update(PaymentRequest $request, $id)
     {
-        //
+        $payment = Payment::find($id);
+        $payment->touch();
+        return $payment->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class PaymentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payment = Payment::find($id);
+        return $payment->delete();
     }
 }

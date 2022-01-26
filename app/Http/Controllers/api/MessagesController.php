@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\MessageRequest;
+use App\Http\Requests\MessageRequest;
 use App\Models\Message;
-use App\Resource\MessageResource;
+use App\Http\Resources\MessageResource;
 
 class MessagesController extends Controller
 {
@@ -18,7 +18,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+        return MessageResource::collection(Message::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class MessagesController extends Controller
      */
     public function store(MessageRequest $request)
     {
-        //
+        return Message::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
-        //
+        return new MessageResource(Message::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class MessagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new MessageResource(Message::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class MessagesController extends Controller
      */
     public function update(MessageRequest $request, $id)
     {
-        //
+        $message = Message::find($id);
+        $message->touch();
+        return $message->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $message = Message::find($id);
+        return $message->delete();
     }
 }

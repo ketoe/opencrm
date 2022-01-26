@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\OrderRequest;
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
-use App\Resource\OrderResource;
+use App\Http\Resources\OrderResource;
 
 class OrdersController extends Controller
 {
@@ -18,7 +18,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        return OrderResource::collection(Order::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class OrdersController extends Controller
      */
     public function store(OrderRequest $request)
     {
-        //
+        return Order::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        return new OrderResource(Order::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new OrderResource(Order::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class OrdersController extends Controller
      */
     public function update(OrderRequest $request, $id)
     {
-        //
+        $order = Order::find($id);
+        $order->touch();
+        return $order->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        return $order->delete();
     }
 }

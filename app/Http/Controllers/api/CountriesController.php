@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\CountrieRequest;
+use App\Http\Requests\CountrieRequest;
 use App\Models\Countrie;
-use App\Resource\CountrieResource;
+use App\Http\Resources\CountrieResource;
 
 class CountriesController extends Controller
 {
@@ -18,7 +18,7 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        //
+        return CountriesResource::collection(Countrie::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class CountriesController extends Controller
      */
     public function store(CountrieRequest $request)
     {
-        //
+        return Countrie::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class CountriesController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CountrieResource(Countrie::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class CountriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new CountrieResource(Countrie::findOrFail($id));
     }
 
     /**
@@ -71,9 +71,11 @@ class CountriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Countrie $request, $id)
+    public function update(CountrieRequest $request, $id)
     {
-        //
+        $countrie = Countrie::find($id);
+        $countrie->touch();
+        return $countrie->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ountrie = Countrie::find($id);
+        return $ountrie->delete();
     }
 }

@@ -22,7 +22,7 @@ class CalenderResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'user' => new UserResource(User::findOrFaild($this->user_id)),
+            'user' => new UserResource(User::findOrFail($this->user_id)),
             'date_start' => $this->date_start,
             'date_end' => $this->date_end,
             'archive' => $this->archive,

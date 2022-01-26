@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\ClientRequest;
+use App\Http\Requests\ClientRequest;
 use App\Models\Client;
-use App\Resource\ClientResource;
+use App\Http\Resources\ClientResource;
 
 class ClientsController extends Controller
 {
@@ -18,7 +18,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        return ClientResource::collection(Client::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class ClientsController extends Controller
      */
     public function store(ClientRequest $request)
     {
-        //
+        return Client::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+        return new ClientResource(Client::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new ClientResource(Client::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class ClientsController extends Controller
      */
     public function update(ClientRequest $request, $id)
     {
-        //
+        $client = Client::find($id);
+        $client->touch();
+        return $client->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        return $client->delete();
     }
 }

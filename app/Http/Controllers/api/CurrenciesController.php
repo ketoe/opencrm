@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\CurrencyRequest;
+use App\Http\Requests\CurrencyRequest;
 use App\Models\Currency;
-use App\Resource\CurrencyResource;
+use App\Http\Resources\CurrencyResource;
 
 class CurrenciesController extends Controller
 {
@@ -18,7 +18,7 @@ class CurrenciesController extends Controller
      */
     public function index()
     {
-        //
+        return CurrencyResource::collection(Currency::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class CurrenciesController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class CurrenciesController extends Controller
      */
     public function store(CurrencyRequest $request)
     {
-        //
+        return Currency::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class CurrenciesController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CurrencyResource(Currency::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class CurrenciesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new CurrencyResource(Currency::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class CurrenciesController extends Controller
      */
     public function update(CurrencyRequest $request, $id)
     {
-        //
+        $currency = Currency::find($id);
+        $currency->touch();
+        return $currency->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class CurrenciesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $currency = Currency::find($id);
+        return $currency->delete();
     }
 }

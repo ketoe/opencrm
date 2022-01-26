@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Requests\NoteRequest;
+use App\Http\Requests\NoteRequest;
 use App\Models\Note;
-use App\Resource\NoteResource;
+use App\Http\Resources\NoteResource;
 
 class NotesController extends Controller
 {
@@ -18,7 +18,7 @@ class NotesController extends Controller
      */
     public function index()
     {
-        //
+        return NoteResource::collection(Note::paginate(20));
     }
 
     /**
@@ -28,7 +28,7 @@ class NotesController extends Controller
      */
     public function create()
     {
-        //
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ class NotesController extends Controller
      */
     public function store(NoteRequest $request)
     {
-        //
+        return Note::create($request->all());
     }
 
     /**
@@ -50,7 +50,7 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        //
+        return new NoteResource(Note::findOrFail($id));
     }
 
     /**
@@ -61,7 +61,7 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return new NoteResource(Note::findOrFail($id));
     }
 
     /**
@@ -73,7 +73,9 @@ class NotesController extends Controller
      */
     public function update(NoteRequest $request, $id)
     {
-        //
+        $note = Note::find($id);
+        $note->touch();
+        return $note->update($request->all());
     }
 
     /**
@@ -84,6 +86,7 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::find($id);
+        return $note->delete();
     }
 }
