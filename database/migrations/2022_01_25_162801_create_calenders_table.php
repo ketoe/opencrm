@@ -18,8 +18,8 @@ class CreateCalendersTable extends Migration
             $table->string('name', 150)->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->date('date_start')->nullable()->default(new DateTime());
-            $table->date('date_end')->nullable()->default(new DateTime());
+            $table->date('date_start');
+            $table->date('date_end');
             $table->boolean('archive')->nullable()->default(false);
             $table->boolean('important')->nullable()->default(false);
             $table->timestamps();

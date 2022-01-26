@@ -30,7 +30,7 @@ class CreateClientsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('countrie_id')->references('id')->on('countries');
-            $table->foreign('currenncy_id')->references('id')->on('currencies');
+            $table->foreign('currency_id')->references('id')->on('currencies');
             $table->foreign('payment_id')->references('id')->on('payments');
         });
     }
