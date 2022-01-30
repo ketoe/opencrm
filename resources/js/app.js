@@ -6,14 +6,13 @@ import Main from './components/layout/main';
 import Nav from './components/layout/nav';
 import { BrowserRouter } from "react-router-dom";
 
-import './vintage-popup.css';
 
 
 
 function App() {
     return (
         <>
-             <BrowserRouter>
+            <BrowserRouter>
             <Header />
             <Nav />
             <Main />
