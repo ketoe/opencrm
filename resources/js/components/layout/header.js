@@ -6,7 +6,7 @@ export default function Header() {
         <>
         <header>
             <section>
-                <div class="logo"></div>
+                <div className="logo"></div>
             </section>
         </header>
         </>

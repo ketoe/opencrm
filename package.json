@@ -24,6 +24,11 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "mix": "^0.0.1"
+        "jquery": "^3.6.0",
+        "mix": "^0.0.1",
+        "react-router": "^6.2.1",
+        "react-router-dom": "^6.2.1",
+        "reactjs-popup": "^2.0.5",
+        "vintage-popup": "^0.2.2"
     }
 }
