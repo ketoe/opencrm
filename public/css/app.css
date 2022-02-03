@@ -11613,6 +11613,7 @@ body main {
   margin-top: 20px;
   height: calc(100vh - 20px - 80px - 80px - 60px);
   overflow-y: auto;
+  overflow-x: hidden;
 }
 body main h3, body main .h3 {
   width: 100%;

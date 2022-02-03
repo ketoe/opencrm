@@ -29,17 +29,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('calenders', CalendersController::class);
-Route::resource('clients', ClientsController::class);
-Route::resource('countries', CountriesController::class);
-Route::resource('currencies', CurrenciesController::class);
-Route::resource('messages', MessagesController::class);
-Route::resource('notes', NotesController::class);
-Route::resource('orders', OrdersController::class);
-Route::resource('payments', PaymentsController::class);
-Route::resource('users', UsersController::class);
-
-if (Auth::check())
-{
-    Route::get('/users/showAuth', [UsersController::class, 'showAuth']);
-}
+// Route::resource('calenders', CalendersController::class);
+// Route::resource('clients', ClientsController::class);
+// Route::resource('countries', CountriesController::class);
+// Route::resource('currencies', CurrenciesController::class);
+// Route::resource('messages', MessagesController::class);
+// Route::resource('notes', NotesController::class);
+// Route::resource('orders', OrdersController::class);
+// Route::resource('payments', PaymentsController::class);
+// Route::resource('users', UsersController::class);
