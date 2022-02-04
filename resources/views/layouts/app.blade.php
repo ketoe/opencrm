@@ -18,14 +18,14 @@
     <nav>
         <ul>
             <li><a href="/" class="icon home" click="true"></a></li>
-            <li><a href="clients" class="icon clients" click="true"></a></li>
-            <li><a href="orders" class="icon orders" click="true"></a></li>
-            <li><a href="calender" class="icon calender" click="true"></a></li>
-            <li><a href="messages" class="icon messages" click="true"></a></li>
-            <li><a href="settings" class="icon settings" click="true"></a></li>
-            <li><a href="notes" class="icon notes" click="true"></a></li>
-            <li><a href="admin" class="icon admin" click="true"></a></li>
-            <li><a href="logout" class="icon logout" click="true"></a></li>
+            <li><a href="/clients" class="icon clients" click="true"></a></li>
+            <li><a href="/orders" class="icon orders" click="true"></a></li>
+            <li><a href="/calender" class="icon calender" click="true"></a></li>
+            <li><a href="/messages" class="icon messages" click="true"></a></li>
+            <li><a href="/settings" class="icon settings" click="true"></a></li>
+            <li><a href="/notes" class="icon notes" click="true"></a></li>
+            <li><a href="/admins" class="icon admin" click="true"></a></li>
+            <li><a href="/logout" class="icon logout" click="true"></a></li>
         </ul>
     </nav>
 

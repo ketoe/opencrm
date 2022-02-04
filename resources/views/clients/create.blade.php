@@ -5,7 +5,7 @@
 @section('main')
 <form action="/clients/store">
     <input type="submit" name="add" class="icon save" value="" click="true" />
-    <a href="/clients" class="icon undo" click="true" />
+    <a href="/clients" class="icon undo" click="true" /></a>
     <div class="form-group row">
         <label for="name" class="col-md-2 col-form-label">Nazwa:</label>
         <div class="col-md-3"><input type="text" name="name" id="name" /></div>
