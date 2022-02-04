@@ -26,7 +26,20 @@ class CurrencyRequest extends FormRequest
         return [
             'name' => 'required | string | max: 100',
             'shortName' => 'required | string | max: 10',
-            'value' => 'integer'
+            'value' => 'numeric'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.string' => 'Pole musi być tekstem',
+            'name.required' => 'Pole name jest wymagane',
+            'name.max' => 'Pole name może mieć max 100 znaków',
+            'shortName.required' => 'Pole z krótką nazwą jest wymagane',
+            'shortName.string' => 'Pole z krótką nazwą musi być stringiem',
+            'shortName.max' => 'Pole z krótką nazwą może mieć max 10 znaków',
+            'value.numeric' => 'Pole wartości musi być liczbą zmiennoprzecinkową'
         ];
     }
 }

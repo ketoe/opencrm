@@ -27,4 +27,13 @@ class CountrieRequest extends FormRequest
             'name' => 'required | string | max: 100'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.string' => 'Pole musi być tekstem',
+            'name.required' => 'Pole name jest wymagane',
+            'name.max' => 'Pole name może mieć max 100 znaków'
+        ];
+    }
 }

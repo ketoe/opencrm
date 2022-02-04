@@ -27,4 +27,11 @@ class PaymentRequest extends FormRequest
             'name' => 'required | string | max: 100'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole nazwa wymagane'
+        ];
+    }
 }

@@ -38,15 +38,34 @@ Route::prefix('admins')->group(function () {
     Route::get('payments', [PaymentsController::class, 'index']);
     Route::get('countries', [CountriesController::class, 'index']);
     Route::get('currencies', [CurrenciesController::class, 'index']);
-    Route::get('users', [UsersController::class, 'create']);
+    Route::get('users', [UsersController::class, 'index']);
 
     Route::prefix('payments')->group(function () {
         Route::get('create', [PaymentsController::class, 'create']);
         Route::post('store', [PaymentsController::class, 'store']);
-        Route::get('show/{$id}', [PaymentsController::class, 'show']);
-        Route::get('edit/{$id}', [PaymentsController::class, 'edit']);
-        Route::post('update/{$id}', [PaymentsController::class, 'update']);
-        Route::get('destroy/{$id}', [PaymentsController::class, 'destroy']);
+        Route::get('edit/{id}', [PaymentsController::class, 'edit']);
+        Route::post('update/{id}', [PaymentsController::class, 'update']);
+    });
+
+    Route::prefix('countries')->group(function () {
+        Route::get('create', [CountriesController::class, 'create']);
+        Route::post('store', [CountriesController::class, 'store']);
+        Route::get('edit/{id}', [CountriesController::class, 'edit']);
+        Route::post('update/{id}', [CountriesController::class, 'update']);
+    });
+
+    Route::prefix('currencies')->group(function () {
+        Route::get('create', [CurrenciesController::class, 'create']);
+        Route::post('store', [CurrenciesController::class, 'store']);
+        Route::get('edit/{id}', [CurrenciesController::class, 'edit']);
+        Route::post('update/{id}', [CurrenciesController::class, 'update']);
+    });
+
+    Route::prefix('users')->group(function () {
+        Route::get('create', [UsersController::class, 'create']);
+        Route::post('store', [UsersController::class, 'store']);
+        Route::get('edit/{id}', [UsersController::class, 'edit']);
+        Route::post('update/{id}', [UsersController::class, 'update']);
     });
 
 });

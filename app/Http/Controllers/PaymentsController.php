@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
@@ -21,31 +22,25 @@ class PaymentsController extends Controller
         return view('payments.create');
     }
 
-    public function show (int $id) 
-    {
-        $data = Payment::findOrFail($id);
-    }
-
     public function edit (int $id)
     {
         $data = Payment::findOrFail($id);
+        return view('payments.edit',$data);
     }
 
     public function store (PaymentRequest $request)
     {
-        return Payment::create($request->all());
+        Payment::create($request->all());
+        $request->session()->flash('success', 'Metoda płatności utworzona.');
+        return redirect('/admins/payments');
     }
 
     public function update (PaymentRequest $request, $id)
     {
         $payment = Payment::find($id);
         $payment->touch();
-        return $payment->update($request->all());
-    }
-
-    public function destroy ($id)
-    {
-        $payment = Payment::find($id);
-        return $payment->delete();
+        $payment->update($request->all());
+        $request->session()->flash('success', 'Metoda została zaktualizowana.');
+        return redirect('/admins/payments');
     }
 }

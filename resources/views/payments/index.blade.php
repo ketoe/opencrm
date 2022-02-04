@@ -23,6 +23,7 @@
         @endforeach
     </tbody>
 </table>
+{{$payments->links()}}
 
 
 @endsection
