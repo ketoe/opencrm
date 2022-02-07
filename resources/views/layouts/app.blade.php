@@ -12,42 +12,43 @@
     <header>
         <section>
             <div class="logo"></div>
+            @if (Auth::check())
+                <div class="user">Zalogowany: {{ Auth::user()->name. ' '.Auth::user()->surname}}</div>
+            @endif
         </section>
     </header>
 
-    <nav>
+    <nav>  
+        @if (Auth::check())
         <ul>
             <li><a href="/" class="icon home" click="true"></a></li>
             <li><a href="/clients" class="icon clients" click="true"></a></li>
-            <li><a href="/orders" class="icon orders" click="true"></a></li>
-            <li><a href="/calender" class="icon calender" click="true"></a></li>
-            <li><a href="/messages" class="icon messages" click="true"></a></li>
-            <li><a href="/settings" class="icon settings" click="true"></a></li>
-            <li><a href="/notes" class="icon notes" click="true"></a></li>
-            <li><a href="/admins" class="icon admin" click="true"></a></li>
-            <li><a href="/logout" class="icon logout" click="true"></a></li>
+            @if (Auth::user()->admin == 1)
+                <li><a href="/admins" class="icon admin" click="true"></a></li>
+            @endif
+            <li><a href="user/logout" class="icon logout" click="true"></a></li>
         </ul>
+        @endif
     </nav>
 
     <main>
         <h3>@yield('title')</h3>
         <section>
+            @if(Session::has('error'))
+                <div class="alert alert-danger" role="alert">{{ Session::get('error') }}</div>
+            @endif
+            @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">{{ Session::get('success') }}</div>
+            @endif
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                             <li>{{ $error }}</li>
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
             @endif
-            @if (Session::has('success'))
-                <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
-            @endif
-            @if (Session::has('error'))
-                <div class="alert alert-danger" role="alert">{{Session::get('error')}}</div>
-            @endif
-
             @yield('main')
         </section>
     </main>

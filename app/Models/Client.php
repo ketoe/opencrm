@@ -29,9 +29,9 @@ class Client extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     /**
@@ -39,9 +39,9 @@ class Client extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function countrie(): BelongsTo
+    public function countrie()
     {
-        return $this->belongsTo(Countrie::class, 'id', 'countrie_id');
+        return $this->belongsTo(Countrie::class, 'countrie_id', 'id');
     }
 
     /**
@@ -49,9 +49,9 @@ class Client extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function currency(): BelongsTo
+    public function currency()
     {
-        return $this->belongsTo(Currency::class, 'id', 'currency_id');
+        return $this->belongsTo(Currency::class, 'currency_id', 'id');
     }
 
     /**
@@ -59,9 +59,9 @@ class Client extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function payment(): BelongsTo
+    public function payment()
     {
-        return $this->belongsTo(Payment::class, 'id', 'payment_id');
+        return $this->belongsTo(Payment::class, 'payment_id', 'id');
     }
     
 }

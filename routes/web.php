@@ -28,44 +28,63 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('clients')->group(function () {
-    Route::get('/', [ClientsController::class, 'index']);
-    Route::get('create', [ClientsController::class, 'create']);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/logout', [UsersController::class, 'logout']);
+    Route::prefix('clients')->group(function () {
+        Route::get('/', [ClientsController::class, 'index']);
+        Route::get('create', [ClientsController::class, 'create']);
+        Route::post('store', [ClientsController::class, 'store']);
+        Route::get('{id}', [ClientsController::class, 'show']);
+        Route::get('edit/{id}', [ClientsController::class, 'edit']);
+        Route::post('update/{id}', [ClientsController::class, 'update']);
+        
+
+    });
+    
+    Route::prefix('admins')->group(function () {  
+        Route::get('/', [AdminsController::class, 'index']);
+        Route::get('payments', [PaymentsController::class, 'index']);
+        Route::get('countries', [CountriesController::class, 'index']);
+        Route::get('currencies', [CurrenciesController::class, 'index']);
+        Route::get('users', [UsersController::class, 'index']);
+    
+        Route::prefix('payments')->group(function () {
+            Route::get('create', [PaymentsController::class, 'create']);
+            Route::post('store', [PaymentsController::class, 'store']);
+            Route::get('edit/{id}', [PaymentsController::class, 'edit']);
+            Route::post('update/{id}', [PaymentsController::class, 'update']);
+        });
+    
+        Route::prefix('countries')->group(function () {
+            Route::get('create', [CountriesController::class, 'create']);
+            Route::post('store', [CountriesController::class, 'store']);
+            Route::get('edit/{id}', [CountriesController::class, 'edit']);
+            Route::post('update/{id}', [CountriesController::class, 'update']);
+        });
+    
+        Route::prefix('currencies')->group(function () {
+            Route::get('create', [CurrenciesController::class, 'create']);
+            Route::post('store', [CurrenciesController::class, 'store']);
+            Route::get('edit/{id}', [CurrenciesController::class, 'edit']);
+            Route::post('update/{id}', [CurrenciesController::class, 'update']);
+        });
+    
+        Route::prefix('users')->group(function () {
+            Route::get('create', [UsersController::class, 'create']);
+            Route::post('store', [UsersController::class, 'store']);
+            Route::get('edit/{id}', [UsersController::class, 'edit']);
+            Route::post('update/{id}', [UsersController::class, 'update']);
+        });
+
+    
+    });
 });
+Auth::routes();
 
-Route::prefix('admins')->group(function () {  
-    Route::get('/', [AdminsController::class, 'index']);
-    Route::get('payments', [PaymentsController::class, 'index']);
-    Route::get('countries', [CountriesController::class, 'index']);
-    Route::get('currencies', [CurrenciesController::class, 'index']);
-    Route::get('users', [UsersController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::prefix('payments')->group(function () {
-        Route::get('create', [PaymentsController::class, 'create']);
-        Route::post('store', [PaymentsController::class, 'store']);
-        Route::get('edit/{id}', [PaymentsController::class, 'edit']);
-        Route::post('update/{id}', [PaymentsController::class, 'update']);
-    });
+Auth::routes();
 
-    Route::prefix('countries')->group(function () {
-        Route::get('create', [CountriesController::class, 'create']);
-        Route::post('store', [CountriesController::class, 'store']);
-        Route::get('edit/{id}', [CountriesController::class, 'edit']);
-        Route::post('update/{id}', [CountriesController::class, 'update']);
-    });
-
-    Route::prefix('currencies')->group(function () {
-        Route::get('create', [CurrenciesController::class, 'create']);
-        Route::post('store', [CurrenciesController::class, 'store']);
-        Route::get('edit/{id}', [CurrenciesController::class, 'edit']);
-        Route::post('update/{id}', [CurrenciesController::class, 'update']);
-    });
-
-    Route::prefix('users')->group(function () {
-        Route::get('create', [UsersController::class, 'create']);
-        Route::post('store', [UsersController::class, 'store']);
-        Route::get('edit/{id}', [UsersController::class, 'edit']);
-        Route::post('update/{id}', [UsersController::class, 'update']);
-    });
-
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

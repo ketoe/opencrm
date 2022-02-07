@@ -25,12 +25,12 @@ class ClientRequest extends FormRequest
     {
         return [
             'name' => 'required | string | max: 150',
-            'nip' => 'integer',
-            'regon' => 'integer',
-            'krs' => 'integer',
-            'address' => 'string | max: 150',
-            'telephone' => 'integer',
-            'emai' => 'string'
+            'nip' => 'nullable | integer',
+            'regon' => 'nullable | integer',
+            'krs' => 'nullable | integer',
+            'address' => 'nullable |string | max: 150',
+            'telephone' => 'nullable | integer',
+            'email' => 'nullable | string'
         ];
     }
 }

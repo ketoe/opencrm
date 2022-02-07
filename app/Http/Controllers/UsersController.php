@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
@@ -30,9 +31,13 @@ class UsersController extends Controller
 
     public function store (UserRequest $request)
     {
-        $password = $request->input('password');
-        $request->password = Hash::make($password);
-        User::create($request->all());
+    
+        User::create([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'email' => $request->email,
+            'password' => Hash::make($request->input('password'))
+        ]);;
         $request->session()->flash('success', 'Użytkownik został utworzony.');
         return redirect('/admins/users');
     }
@@ -44,5 +49,11 @@ class UsersController extends Controller
         $user->update($request->all());
         $user->session()->flash('success', 'Użytkownik został zaktualizowany.');
         return redirect('/admins/users');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

@@ -117,6 +117,14 @@ body {
                 left: $modul;
                 top: calc(($height-header - $height-logo) / 2);
             }
+            .user {
+                float: right;
+                color: $color-font;
+                font-family: $font;
+                font-size: 12px;
+                margin-top: calc(($height-header - 12px) / 2);
+                margin-right: $modul;
+            }
         }
     }
     nav {
@@ -184,12 +192,13 @@ body {
                 display: block;
                 margin: 5px;
             }
-            input {
+            input, select {
                 border: 0px;
                 border-bottom: 1px solid $color-border-section;
                 padding: 1px;
                 font-size: $font-size;
                 background-color: $background-section;
+                width: 100%;
             }
             input[type='submit'] {
                 border-bottom: 0px !important;

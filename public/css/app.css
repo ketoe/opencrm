@@ -11589,6 +11589,14 @@ body header section .logo {
   left: 20px;
   top: 15.5px;
 }
+body header section .user {
+  float: right;
+  color: #444444;
+  font-family: Alata;
+  font-size: 12px;
+  margin-top: 34px;
+  margin-right: 20px;
+}
 body nav {
   position: relative;
   height: 80px;
@@ -11659,6 +11667,7 @@ body main section input {
   padding: 1px;
   font-size: 14px;
   background-color: #FFFFFF;
+  width: 100%;
 }
 body main section input[type=submit] {
   border-bottom: 0px !important;
