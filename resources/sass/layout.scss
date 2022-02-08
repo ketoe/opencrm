@@ -192,13 +192,18 @@ body {
                 display: block;
                 margin: 5px;
             }
-            input, select {
+            input, select, textarea {
                 border: 0px;
                 border-bottom: 1px solid $color-border-section;
                 padding: 1px;
                 font-size: $font-size;
                 background-color: $background-section;
                 width: 100%;
+            }
+            textarea {
+                border: 1px solid $background-body;
+                min-width: 300px;
+                min-height: 200px;
             }
             input[type='submit'] {
                 border-bottom: 0px !important;
@@ -207,6 +212,19 @@ body {
                 padding: 4px;
                 font-size: $modul/2;
                 margin: $modul/3;
+            }
+
+            h3.card-title {
+                margin: 0px; 
+            }
+            .small-text {
+                font-size: $font-size/1.5;
+            }
+            .card {
+                margin-top: $modul/2;
+            }
+            .floatRight {
+                float: right;
             }
         }
        

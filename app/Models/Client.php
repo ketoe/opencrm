@@ -63,5 +63,15 @@ class Client extends Model
     {
         return $this->belongsTo(Payment::class, 'payment_id', 'id');
     }
+
+    /**
+     * Get all of the notesClients for the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notesClients(): HasMany
+    {
+        return $this->hasMany(NoteClient::class, 'id', 'client_id');
+    }
     
 }

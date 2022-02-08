@@ -10,7 +10,7 @@ use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\CountriesController;
 use App\Http\Controllers\CurrenciesController;
 use App\Http\Controllers\UsersController;
-
+use App\Http\Controllers\NotesClientsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,10 +39,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('{id}', [ClientsController::class, 'show']);
         Route::get('edit/{id}', [ClientsController::class, 'edit']);
         Route::post('update/{id}', [ClientsController::class, 'update']);
-        
+    });
+    Route::prefix('notesClients')->group(function () {
+        Route::get('create/{id}', [NotesClientsController::class, 'create']);
+        Route::post('store/{id}', [NotesClientsController::class, 'store']);
+        Route::post('update/{id}', [NotesClientsController::class, 'update']);
+        Route::get('edit/{id}', [NotesClientsController::class, 'edit']);
+        Route::get('delete/{id}', [NotesClientsController::class, 'delete']);
 
     });
-    
     Route::prefix('admins')->group(function () {  
         Route::get('/', [AdminsController::class, 'index']);
         Route::get('payments', [PaymentsController::class, 'index']);

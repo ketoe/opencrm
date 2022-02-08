@@ -12,6 +12,7 @@ use App\Models\Currency;
 use App\Models\Payment;
 use App\Models\Countrie;
 use App\Models\Client;
+use App\Models\NoteClient;
 
 class ClientsController extends Controller
 {
@@ -55,6 +56,7 @@ class ClientsController extends Controller
     {
         $data = array();
         $data['client'] = Client::findOrFail($id);
+        $data['notes'] = NoteClient::where('client_id', $id)->orderBy('created_at','DESC')->get();
         return view('clients.show',$data);
     }
 

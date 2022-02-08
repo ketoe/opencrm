@@ -11661,13 +11661,18 @@ body main section label {
   display: block;
   margin: 5px;
 }
-body main section input {
+body main section input, body main section select, body main section textarea {
   border: 0px;
   border-bottom: 1px solid #CCCCCC;
   padding: 1px;
   font-size: 14px;
   background-color: #FFFFFF;
   width: 100%;
+}
+body main section textarea {
+  border: 1px solid #EEEEEE;
+  min-width: 300px;
+  min-height: 200px;
 }
 body main section input[type=submit] {
   border-bottom: 0px !important;
@@ -11676,6 +11681,21 @@ body main section .btn-sm, body main section .btn-group-sm > .btn {
   padding: 4px;
   font-size: 10px;
   margin: 6.6666666667px;
+}
+body main section h3.card-title, body main section .card-title.h3 {
+  margin: 0px;
+}
+body main section .small-text {
+  font-size: 9.3333333333px;
+}
+body main section .card {
+  margin-top: 10px;
+}
+body main section .important {
+  float: right;
+}
+body main section .floatRight {
+  float: right;
 }
 body footer {
   height: 20px;

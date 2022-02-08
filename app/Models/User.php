@@ -103,5 +103,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class, 'id', 'to');
     }
+
+    /**
+     * Get all of the notesclients for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notesclients(): HasMany
+    {
+        return $this->hasMany(NoteClient::class, 'id', 'user_id');
+    }
     
 }

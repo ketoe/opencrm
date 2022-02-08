@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\NoteClient;
+
 class HomeController extends Controller
 {
     /**
@@ -26,7 +28,9 @@ class HomeController extends Controller
     {
         if (Auth::check())
         {
-            return view('home');
+            $data = array();
+            $data['notesClients'] = NoteClient::orderByDesc('created_at')->limit(10)->get();
+            return view('home.index',$data);
         }else {
             return view('auth.login');
         }

@@ -27,6 +27,8 @@
                 <td>
                     <a href="/clients/edit/{{$client['id']}}" click="true" class="icon edit icon-small"></a>
                     <a href="/clients/{{$client['id']}}" click="true" class="icon info icon-small"></a>
+                    <a href="/notesClients/create/{{$client['id']}}" class="icon notes icon-small" click="true"></a>
+
                 </td>
             </tr>
         @endforeach
